@@ -1,0 +1,59 @@
+header {
+	border: 2.5px solid black;
+	background-color: #FFB4B0;
+	margin: 20px auto 0 auto;
+	width: 70%;
+}
+
+nav li {
+	display: inline-block;
+	padding: 0 5px 0 5px;
+}
+
+.rightborder {
+	border-right: 2.5px solid black;
+}
+
+.container {
+	width: 70%;
+	justify-content: center;
+	margin: auto;
+}
+
+.left-box {
+	border: 2.5px solid black;
+	background-color: #4DD7FA;
+	margin-top: 20px;
+	width: 20%;
+	display: inline-block;
+	position: absolute;
+	height: 350px;
+	padding-top: 30px;
+}
+.left {
+	vertical-align: center;
+	line-height: normal;
+}
+
+.yellow-box {
+	border: 2.5px solid black;
+	background-color: #FEFAC0;
+	display: inline-block;
+	width: 45%;
+	padding-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	height: 380px;
+	position: absolute;
+	left: 530px;
+	right: 260px;
+}
+
+.yellow-box h2 {
+	color: brown;
+}
+
+
+
+
+
