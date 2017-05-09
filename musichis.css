@@ -5,6 +5,20 @@ header {
 	width: 70%;
 }
 
+h2 {
+	font-size: 1em;
+}
+.addMusicView {
+	width: 40%;
+	margin: auto;
+	border: 1px solid black;
+	display: none;
+}
+
+.showMusicView {
+	display: visible;
+}
+
 nav li {
 	display: inline-block;
 	padding: 0 5px 0 5px;
@@ -18,6 +32,13 @@ nav li {
 	width: 70%;
 	justify-content: center;
 	margin: auto;
+}
+
+.hideContainer {
+	display: none;
+}
+.showContainer {
+	display: visible;
 }
 
 .left-box {

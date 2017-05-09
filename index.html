@@ -1,24 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
+  <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="musichis.css">
 </head>
 
 <body>
 				<header>
-					<nav>
+					<nav class="valign-wrapper">
 							<ul>
-								<li class="rightborder"><a href="#">View Music</a></li>
-								<li class="rightborder"><a href="#">Add Music</a></li>
+								<li class="rightborder"><a id="viewMusic" href="#">View Music</a></li>
+								<li class="rightborder"><a id="addMusic" href="#">Add Music</a></li>
 								<li><a href="#">Profile</a></li>
 							</ul>
 					</nav>
 				</header>
+						<div id="addMusicView" class="hideContainer" -->
+							<input type="text" id="title" class="title">
+							<input type="text" id="artist" class="artist">
+							<input type="text" id="album" class="album">
+							<button id="addBtn">Add Song</button>
+						</div>
 
-		<div class="container">
+		<div id="listMusicView" class="container hideContainer showContainer">
 
 				<div class="left-box">
 					<span class="left">
@@ -48,8 +55,8 @@
 					</span>
 				</div>
 
-					<div id="container" class="yellow-box">
-						<h2>Song Name</h2>
+					<div id="container" class="yellow-box" style="margin:0auto;">
+						<h2 style="text-align:center;">Song Name</h2>
 						Artist Name | Album Name | Genre
 						<h2>Song Name</h2>
 						Artist Name | Album Name | Genre
@@ -59,6 +66,12 @@
 						Artist Name | Album Name | Genre
 					</div>
 		</div> <!-- CONTAINER -->
-		<script src="songs.js/songs.js"></script>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+		<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+		<script src="songs/songs.js"></script>
 </body>
 </html>
