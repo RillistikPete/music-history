@@ -69,6 +69,47 @@ addButton.addEventListener("click", function(event){
 
 	});
 
+//_____________________________________________________________
+
+var songRequest = new XMLHttpRequest();
+
+songRequest.addEventListener("load", requestComplete);
+songRequest.addEventListener("error", requestFail);
+
+function requestComplete(event){
+	var songData = JSON.parse(event.target.responseText).songs;
+	console.log("load successful");
+	showSongs(songData);
+}
+function requestFail(event){
+	console.log("request failed - error");
+}
+
+songRequest.open("GET", "songs.json");
+songRequest.send();
+
+function showSongs(jsonObject){
+	for (var i = 0; i < jsonObject.length; i++){
+		//var songList = $("#container");
+		var songList = document.getElementById("container");
+		var newSong = document.createElement("div");
+
+		newSong.innerHTML += `<p>${jsonObject[i].title}</p>
+								<p>${jsonObject[i].artist}</p>
+								<p>${jsonObject[i].album}</p>
+								<button id="delete">Delete Song</button>`
+		songList.append(newSong);
+
+		newSong.addEventListener("click", function(event){
+			if (event.target.tagName.toLowerCase() === "button"){
+				songList.removeChild(event.target.parentElement);
+			}
+
+		})
+	}
+}
+
+
 
 
 

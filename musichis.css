@@ -5,9 +5,7 @@ header {
 	width: 70%;
 }
 
-h2 {
-	font-size: 1em;
-}
+
 .addMusicView {
 	width: 40%;
 	margin: auto;
@@ -63,8 +61,7 @@ nav li {
 	width: 45%;
 	padding-left: 30px;
 	margin-top: 20px;
-	margin-bottom: 30px;
-	height: 380px;
+	/*margin-bottom: 30px;*/
 	position: absolute;
 	left: 530px;
 	right: 260px;
