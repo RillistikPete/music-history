@@ -27,21 +27,20 @@ console.log(songs);
 
 //_______________________Music History 3 Exercise____________________
 
-var addMusic = document.getElementById("addMusic");
-var viewMusic = document.getElementById("viewMusic");
 
-viewMusic.addEventListener("click", function(event){
+
+
+$("#viewMusic").click(function(event){
 	console.log("click works", event);
-	document.getElementById('listMusicView').classList.add("showContainer");
-	document.getElementById('listMusicView').classList.remove("hideContainer");
-	document.getElementById('addMusicView').classList.add("hideContainer");
+	$('#listMusicView').addClass("showContainer");
+	$('#listMusicView').removeClass("hideContainer");
+	$('#addMusicView').addClass("hideContainer");
 });
 
-addMusic.addEventListener("click", function(event){
+$("#addMusic").click(function(event){
 	console.log("works", event);
-	//document.getElementById('addMusicView').classList.remove("hideContainer");
-	document.getElementById('addMusicView').classList.remove("hideContainer");
-	document.getElementById('listMusicView').classList.add("hideContainer");
+	$('#addMusicView').removeClass("hideContainer");
+	$('#listMusicView').addClass("hideContainer");
 });
 
 //Once the user fills out the song form and clicks the add button, you should
@@ -49,23 +48,21 @@ addMusic.addEventListener("click", function(event){
 //and update the song list in the DOM (below)
 
 
-var title = document.getElementById("title");
-var artist = document.getElementById("artist")
-var album = document.getElementById("album")
+var title = $("#title")[0];
+var artist = $("#artist")[0];
+var album = $("#album")[0];
 
-var addButton = document.getElementById("addBtn");
+var songBox = $("#container");
 
-var songBox = document.getElementById("container");
+$("#addBtn").click(function(event){
 
-addButton.addEventListener("click", function(event){
-
-		songBox.innerHTML = `<h2>${title.value}</h2>
+		songBox.html(`<h2>${title.value}</h2>
 							<p>${artist.value}</p>
-							<p>${album.value}</p>`
+							<p>${album.value}</p>`);
 
-		document.getElementById('addMusicView').classList.add("hideContainer");
-		document.getElementById('listMusicView').classList.add("showContainer");
-		document.getElementById('listMusicView').classList.remove("hideContainer");
+		$('#addMusicView').addClass("hideContainer");
+		$('#listMusicView').addClass("showContainer");
+		$('#listMusicView').removeClass("hideContainer");
 
 	});
 
@@ -91,18 +88,19 @@ songRequest.send();
 function showSongs(jsonObject){
 	for (var i = 0; i < jsonObject.length; i++){
 		//var songList = $("#container");
-		var songList = document.getElementById("container");
-		var newSong = document.createElement("div");
+		var songList = $("#container");
+		let newSong = $("<div>")
+		newSong.append(`<p>${jsonObject[i].title}</p>
+							<p>${jsonObject[i].artist}</p>
+							<p>${jsonObject[i].album}</p>
+							<button id="delete" class="delete">Delete Song</button>`);
 
-		newSong.innerHTML += `<p>${jsonObject[i].title}</p>
-								<p>${jsonObject[i].artist}</p>
-								<p>${jsonObject[i].album}</p>
-								<button id="delete">Delete Song</button>`
 		songList.append(newSong);
 
-		newSong.addEventListener("click", function(event){
+		newSong.click(function(event){
+			console.log("click for delete works");
 			if (event.target.tagName.toLowerCase() === "button"){
-				songList.removeChild(event.target.parentElement);
+				$(newSong).remove();
 			}
 
 		})
